@@ -16,6 +16,8 @@ namespace testocr
         private int[,] prova = new int[9, 9];
         private bool esvalid(int valor,int x,int y)
         {
+            if (x == 2 && y == 8 && valor ==6)
+                Application.DoEvents();
             for (int i = 0; i < 9; i++)
             {
                 if (i != x && prova[i, y] == valor)
@@ -184,6 +186,9 @@ namespace testocr
         private void txt_Leave(object sender, EventArgs e)
         {
             ((TextBox)sender).BackColor = Color.White;
+            if (!string.IsNullOrEmpty(((TextBox)sender).Text))
+                ((TextBox)sender).BackColor = Color.LightPink;
+            
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -234,8 +239,7 @@ namespace testocr
             bool final = false;
             if (inicial[x, y] == 0)
             {
-                if (x == 2 && y == 8)
-                    Application.DoEvents();
+               
                 for (int a = 1; a < 10; a++)
                 {
                     if (esvalid(a, x, y))
@@ -265,7 +269,8 @@ namespace testocr
                         {
                             prova[x, y] = 0;
                             Pinta(x, y, "");
-                            return false;
+                            //return final;
+                           
                         }
                         else
                             return final;
@@ -273,6 +278,7 @@ namespace testocr
 
                     }
                 }
+              
                 return final;
             }
             else
@@ -305,6 +311,7 @@ namespace testocr
             int num = x * 9 + y + 1;
             foreach (TextBox tb in this.Controls.OfType<TextBox>())
             {
+                Application.DoEvents();
                 if (tb.Name=="txt"+num.ToString())
                 {
                     tb.Text = valor;
