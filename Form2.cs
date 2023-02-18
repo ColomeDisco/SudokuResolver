@@ -265,10 +265,18 @@ namespace testocr
                         }
 
                         final = Calcula(x, y);
-                        if (!final)
+                        if (!final && inicial[x, y] == 0)
                         {
                             prova[x, y] = 0;
                             Pinta(x, y, "");
+                            //restar element
+                            if (y > 0)
+                                y--;
+                            else if (x>0)
+                            {
+                                x = x - 1;
+                                y = 8;
+                            }
                             //return final;
                            
                         }
@@ -278,7 +286,8 @@ namespace testocr
 
                     }
                 }
-              
+                prova[x, y] = 0;
+                Pinta(x, y, "");
                 return final;
             }
             else
@@ -302,6 +311,23 @@ namespace testocr
                 }
 
                 final = Calcula(x, y);
+                if (!final && inicial[x, y] == 0)
+                {
+                    prova[x, y] = 0;
+                    Pinta(x, y, "");
+                    //restar element
+                    if (y > 0)
+                        y--;
+                    else if (x > 0)
+                    {
+                        x = x - 1;
+                        y = 8;
+                    }
+                    return final;
+
+                }
+                else
+                    return final;
             }
 
             return final;
@@ -317,15 +343,17 @@ namespace testocr
                     tb.Text = valor;
                 }
             }
-            //if (x == 0) { switch (y) { case 0: txt1.Text = valor.ToString(); break; case 1: txt2.Text = valor.ToString(); break; case 2: txt3.Text = valor.ToString(); break; case 3: txt4.Text = valor.ToString(); break; case 4: txt5.Text = valor.ToString(); break; case 5: txt6.Text = valor.ToString(); break; case 6: txt7.Text = valor.ToString(); break; case 7: txt8.Text = valor.ToString(); break; case 8: txt9.Text = valor.ToString(); break; } }
-            //if (x == 1) { switch (y) { case 0: txt10.Text = valor.ToString(); break; case 1: txt11.Text = valor.ToString(); break; case 2: txt12.Text = valor.ToString(); break; case 3: txt13.Text = valor.ToString(); break; case 4: txt14.Text = valor.ToString(); break; case 5: txt15.Text = valor.ToString(); break; case 6: txt16.Text = valor.ToString(); break; case 7: txt17.Text = valor.ToString(); break; case 8: txt18.Text = valor.ToString(); break; } }
-            //if (x == 2) { switch (y) { case 0: txt19.Text = valor.ToString(); break; case 1: txt20.Text = valor.ToString(); break; case 2: txt21.Text = valor.ToString(); break; case 3: txt22.Text = valor.ToString(); break; case 4: txt23.Text = valor.ToString(); break; case 5: txt24.Text = valor.ToString(); break; case 6: txt25.Text = valor.ToString(); break; case 7: txt26.Text = valor.ToString(); break; case 8: txt27.Text = valor.ToString(); break; } }
-            //if (x == 3) { switch (y) { case 0: txt28.Text = valor.ToString(); break; case 1: txt29.Text = valor.ToString(); break; case 2: txt30.Text = valor.ToString(); break; case 3: txt31.Text = valor.ToString(); break; case 4: txt32.Text = valor.ToString(); break; case 5: txt33.Text = valor.ToString(); break; case 6: txt34.Text = valor.ToString(); break; case 7: txt35.Text = valor.ToString(); break; case 8: txt36.Text = valor.ToString(); break; } }
-            //if (x == 4) { switch (y) { case 0: txt37.Text = valor.ToString(); break; case 1: txt38.Text = valor.ToString(); break; case 2: txt39.Text = valor.ToString(); break; case 3: txt40.Text = valor.ToString(); break; case 4: txt41.Text = valor.ToString(); break; case 5: txt42.Text = valor.ToString(); break; case 6: txt43.Text = valor.ToString(); break; case 7: txt44.Text = valor.ToString(); break; case 8: txt45.Text = valor.ToString(); break; } }
-            //if (x == 5) { switch (y) { case 0: txt46.Text = valor.ToString(); break; case 1: txt47.Text = valor.ToString(); break; case 2: txt48.Text = valor.ToString(); break; case 3: txt49.Text = valor.ToString(); break; case 4: txt50.Text = valor.ToString(); break; case 5: txt51.Text = valor.ToString(); break; case 6: txt52.Text = valor.ToString(); break; case 7: txt53.Text = valor.ToString(); break; case 8: txt54.Text = valor.ToString(); break; } }
-            //if (x == 6) { switch (y) { case 0: txt55.Text = valor.ToString(); break; case 1: txt56.Text = valor.ToString(); break; case 2: txt57.Text = valor.ToString(); break; case 3: txt58.Text = valor.ToString(); break; case 4: txt59.Text = valor.ToString(); break; case 5: txt60.Text = valor.ToString(); break; case 6: txt61.Text = valor.ToString(); break; case 7: txt62.Text = valor.ToString(); break; case 8: txt63.Text = valor.ToString(); break; } }
-            //if (x == 7) { switch (y) { case 0: txt64.Text = valor.ToString(); break; case 1: txt65.Text = valor.ToString(); break; case 2: txt66.Text = valor.ToString(); break; case 3: txt67.Text = valor.ToString(); break; case 4: txt68.Text = valor.ToString(); break; case 5: txt69.Text = valor.ToString(); break; case 6: txt70.Text = valor.ToString(); break; case 7: txt71.Text = valor.ToString(); break; case 8: txt72.Text = valor.ToString(); break; } }
-            //if (x == 8) { switch (y) { case 0: txt73.Text = valor.ToString(); break; case 1: txt74.Text = valor.ToString(); break; case 2: txt75.Text = valor.ToString(); break; case 3: txt76.Text = valor.ToString(); break; case 4: txt77.Text = valor.ToString(); break; case 5: txt78.Text = valor.ToString(); break; case 6: txt79.Text = valor.ToString(); break; case 7: txt80.Text = valor.ToString(); break; case 8: txt81.Text = valor.ToString(); break; } }
+          
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (TextBox tb in this.Controls.OfType<TextBox>())
+            {
+                Application.DoEvents();
+                tb.Text = "";
+                tb.BackColor = Color.White;
+            }
         }
     }
 }
