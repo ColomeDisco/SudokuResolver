@@ -14,6 +14,7 @@ namespace testocr
     {
         private int[,] inicial = new int[9, 9];
         private int[,] prova = new int[9, 9];
+        private static bool atura = false;
         private bool esvalid(int valor,int x,int y)
         {
             if (x == 2 && y == 8 && valor ==6)
@@ -180,7 +181,7 @@ namespace testocr
         private void txt_Enter(object sender, EventArgs e)
         {
             ((TextBox)sender).BackColor = Color.LightGreen;
-            ((TextBox)sender).SelectAll();
+            ((TextBox)sender).Text = "";
         }
 
         private void txt_Leave(object sender, EventArgs e)
@@ -232,14 +233,17 @@ namespace testocr
         private void button1_Click(object sender, EventArgs e)
         {
             EmplenaInicial();
-            bool possible= Calcula(0,0);
+            bool possible= Calcula(0,0,1);
+            atura = false;
         }
-        private  bool  Calcula(int x, int y)
+        private  bool  Calcula(int x, int y, int level)
         {
             bool final = false;
             if (inicial[x, y] == 0)
             {
-               
+                if (level == 4 )
+                    Application.DoEvents();
+
                 for (int a = 1; a < 10; a++)
                 {
                     if (esvalid(a, x, y))
@@ -263,13 +267,14 @@ namespace testocr
                             }
 
                         }
-
-                        final = Calcula(x, y);
+                        if (!atura)
+                           final = Calcula(x, y,level+1);
                         if (!final && inicial[x, y] == 0)
                         {
                             prova[x, y] = 0;
                             Pinta(x, y, "");
                             //restar element
+                            
                             if (y > 0)
                                 y--;
                             else if (x>0)
@@ -281,14 +286,29 @@ namespace testocr
                            
                         }
                         else
-                            return final;
+                        {
+                            if (!final)
+                            {
+                                if (y > 0)
+                                    y--;
+                                else if (x > 0)
+                                {
+                                    x = x - 1;
+                                    y = 8;
+                                }
+                            }
+                            else
+                                return final;
+                        }
+                            
 
 
                     }
+
                 }
                 prova[x, y] = 0;
                 Pinta(x, y, "");
-                return final;
+                return false;
             }
             else
             {
@@ -309,8 +329,8 @@ namespace testocr
                     }
 
                 }
-
-                final = Calcula(x, y);
+                if (!atura)
+                    final = Calcula(x, y,level+1);
                 if (!final && inicial[x, y] == 0)
                 {
                     prova[x, y] = 0;
@@ -335,6 +355,7 @@ namespace testocr
         private void Pinta(int x, int y, string valor)
         {
             int num = x * 9 + y + 1;
+            //System.Threading.Thread.Sleep(1);
             foreach (TextBox tb in this.Controls.OfType<TextBox>())
             {
                 Application.DoEvents();
@@ -350,10 +371,18 @@ namespace testocr
         {
             foreach (TextBox tb in this.Controls.OfType<TextBox>())
             {
-                Application.DoEvents();
-                tb.Text = "";
-                tb.BackColor = Color.White;
+                if (tb.BackColor != Color.LightPink)
+                {
+                    Application.DoEvents();
+                    tb.Text = "";
+                    tb.BackColor = Color.White;
+                }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            atura = true;
         }
     }
 }
