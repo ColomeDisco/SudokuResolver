@@ -243,7 +243,7 @@ namespace testocr
             {
                 if (level == 4 )
                     Application.DoEvents();
-
+                 
                 for (int a = 1; a < 10; a++)
                 {
                     if (esvalid(a, x, y))
