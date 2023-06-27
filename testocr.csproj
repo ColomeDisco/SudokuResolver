@@ -104,6 +104,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="OnlyEXE\runtimes\win-x64\native\tessdata\eng.user-patterns" />
+    <None Include="OnlyEXE\runtimes\win-x64\native\tessdata\eng.user-words" />
+    <None Include="OnlyEXE\runtimes\win-x64\native\tessdata\osd.traineddata" />
+    <None Include="OnlyEXE\runtimes\win-x64\native\tessdata\pdf.ttf" />
+    <None Include="OnlyEXE\runtimes\win-x64\native\tessdata\pdf.ttx" />
+    <None Include="OnlyEXE\runtimes\win-x64\native\tessdata\tessdata\eng.base.traineddata" />
+    <None Include="OnlyEXE\runtimes\win-x64\native\tessdata\tessdata_best\eng.best.traineddata" />
+    <None Include="OnlyEXE\runtimes\win-x64\native\tessdata\tessdata_fast\eng.fast.traineddata" />
+    <None Include="OnlyEXE\runtimes\win-x64\native\Tesseract.Native.deployment.json" />
+    <None Include="OnlyEXE\runtimes\win-x86\native\tessdata\eng.user-patterns" />
+    <None Include="OnlyEXE\runtimes\win-x86\native\tessdata\eng.user-words" />
+    <None Include="OnlyEXE\runtimes\win-x86\native\tessdata\osd.traineddata" />
+    <None Include="OnlyEXE\runtimes\win-x86\native\tessdata\pdf.ttf" />
+    <None Include="OnlyEXE\runtimes\win-x86\native\tessdata\pdf.ttx" />
+    <None Include="OnlyEXE\runtimes\win-x86\native\tessdata\tessdata\eng.base.traineddata" />
+    <None Include="OnlyEXE\runtimes\win-x86\native\tessdata\tessdata_best\eng.best.traineddata" />
+    <None Include="OnlyEXE\runtimes\win-x86\native\tessdata\tessdata_fast\eng.fast.traineddata" />
+    <None Include="OnlyEXE\runtimes\win-x86\native\Tesseract.Native.deployment.json" />
+    <None Include="OnlyEXE\testocr.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -117,6 +136,37 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OnlyEXE\BitMiracle.LibTiff.NET.dll" />
+    <Content Include="OnlyEXE\BitMiracle.LibTiff.NET.xml" />
+    <Content Include="OnlyEXE\IronOcr.dll" />
+    <Content Include="OnlyEXE\IronOcr.xml" />
+    <Content Include="OnlyEXE\IronSoftware.Drawing.Common.dll" />
+    <Content Include="OnlyEXE\IronSoftware.Drawing.Common.pdb" />
+    <Content Include="OnlyEXE\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <Content Include="OnlyEXE\Microsoft.Extensions.Logging.Abstractions.xml" />
+    <Content Include="OnlyEXE\runtimes\win-x64\native\liblept-5.dll" />
+    <Content Include="OnlyEXE\runtimes\win-x64\native\libtesseract-5.dll" />
+    <Content Include="OnlyEXE\runtimes\win-x64\native\pdfium.vanilla.dll" />
+    <Content Include="OnlyEXE\runtimes\win-x86\native\liblept-5.dll" />
+    <Content Include="OnlyEXE\runtimes\win-x86\native\libtesseract-5.dll" />
+    <Content Include="OnlyEXE\runtimes\win-x86\native\pdfium.vanilla.dll" />
+    <Content Include="OnlyEXE\SixLabors.ImageSharp.dll" />
+    <Content Include="OnlyEXE\SixLabors.ImageSharp.xml" />
+    <Content Include="OnlyEXE\System.Buffers.dll" />
+    <Content Include="OnlyEXE\System.Buffers.xml" />
+    <Content Include="OnlyEXE\System.Drawing.Common.dll" />
+    <Content Include="OnlyEXE\System.Drawing.Common.xml" />
+    <Content Include="OnlyEXE\System.Memory.dll" />
+    <Content Include="OnlyEXE\System.Memory.xml" />
+    <Content Include="OnlyEXE\System.Numerics.Vectors.dll" />
+    <Content Include="OnlyEXE\System.Numerics.Vectors.xml" />
+    <Content Include="OnlyEXE\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="OnlyEXE\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="OnlyEXE\System.Text.Encoding.CodePages.dll" />
+    <Content Include="OnlyEXE\System.Text.Encoding.CodePages.xml" />
+    <Content Include="OnlyEXE\testocr.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\IronOcr.2023.1.11644\build\net\IronOcr.targets" Condition="Exists('packages\IronOcr.2023.1.11644\build\net\IronOcr.targets')" />
